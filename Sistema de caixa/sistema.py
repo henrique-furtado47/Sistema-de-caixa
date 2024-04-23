@@ -14,7 +14,7 @@ while True:
     print("1 - Acessar estoque")
     print("2 - Acessar carrinho")
     print("3 - Compra rápida (Utilize para teste ou realizar compra sem adicionar o produto ao estoque)")
-    print("4 - Sair ")
+    print("0 - Sair ")
     opcao=int(input("Digite a opção: "))
     # Opção 1: Acessar estoque
     if opcao==1:
@@ -24,7 +24,8 @@ while True:
             print("2 - Remover produto")
             print("3 - Visualizar estoque")
             print("4 - Atualizar produto")
-            print("5 - Sair")
+            print("5 - Limpar estoque")
+            print("0 - Sair")
             opcao1=int(input("Digite a opção: "))
             # Opção 1 no estoque: Adicionar produto
             if opcao1==1:
@@ -99,8 +100,17 @@ while True:
                             precos[index] = preco
                             quantidades[index] = quantidade
                             print("Dados do produto atualizados com sucesso!")
-            # Opção 5 no estoque: Sair                
+            #Opção 5 no estoque: Limpar estoque
             elif opcao1==5:
+                # Limpando as listas
+                produtos.clear()
+                precos.clear()
+                quantidades.clear()
+                id.clear()
+                total_estoque=0
+                print("\n Estoque limpo")
+            # Opção 0 no estoque: Sair                
+            elif opcao1==0:
                     break
             # Opção inválida
             else:
@@ -116,7 +126,8 @@ while True:
             print("2 - Remover produto")
             print("3 - Visualizar carrinho")
             print("4 - Finalizar compra")
-            print("5 - Sair")
+            print("5 - Limpar carrinho")
+            print("0 - Sair")
             opcao2=int(input("Digite a opção: "))
             # Opção 1 no carrinho: Adicionar produto
             if opcao2==1:
@@ -202,8 +213,14 @@ while True:
                 total=0
                 # Limpando a lista de compras
                 compras=[]
-            # Opção 5 no carrinho: Sair
+            # Opção 5 no carrinho: Limpar carrinho
             elif opcao2==5:
+                # Limpando a lista de compras
+                compras=[]
+                total=0
+                print("\n Carrinho limpo")
+            # Opção 0 no carrinho: Sair
+            elif opcao2==0:
                 break  
             # Opção inválida
             else:
@@ -250,8 +267,8 @@ while True:
          total=0
          # Limpando a lista de compra rápida
          comprarapida=[]
-    # Opção 4: Sair
-    elif opcao==4:
+    # Opção 0: Sair
+    elif opcao==0:
         break
     # Opção inválida
     else:
